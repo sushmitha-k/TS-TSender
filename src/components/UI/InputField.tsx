@@ -1,65 +1,32 @@
-"use client";
+export interface InputFormProps {
+    label: string
+    placeholder: string
+    value?: string
+    type?: string
+    large?: boolean
+    onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+}
 
-import { forwardRef } from "react";
-import clsx from "clsx";
-import { InputFieldProps, sizeStyles } from "../types";
-
-export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
-    (
-        {
-            label,
-            error,
-            size = "md",
-            className,
-            containerClassName,
-            id,
-            variant = "input",
-            ...props
-        },
-        ref
-    ) => {
-        return (
-            <div className={clsx("w-full", containerClassName)}>
-
-                {/* Label */}
-                {label && (
-                    <label
-                        htmlFor={id}
-                        className="mb-1 block text-sm font-medium text-zinc-700"
-                    >
-                        {label}
-                    </label>
-                )}
-
-                {/* Input */}
-                {variant === "textarea" ? (
-                    <input
-                        ref={ref}
-                        id={id}
-                        className={clsx(
-                            "w-full border bg-white outline-none transition-all",
-                            "border-zinc-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20",
-                            "placeholder:text-zinc-400",
-                            "disabled:cursor-not-allowed disabled:opacity-50",
-                            sizeStyles[size],
-                            error && "border-red-500 focus:border-red-500 focus:ring-red-500/20",
-                            className
-                        )}
-                        {...props}
-                    />) : (
-                    <input
-                        className="w-full border rounded-lg px-3 py-2"
-                        {...props}
-                    />
-                )}
-
-                {/* Error */}
-                {error && (
-                    <p className="mt-1 text-xs text-red-500">{error}</p>
-                )}
-            </div>
-        );
-    }
-);
-
-InputField.displayName = "InputField";
+export function InputForm({ label, placeholder, value, type, large, onChange }: InputFormProps) {
+    return (
+        <div className="flex flex-col gap-1.5">
+            <label className="text-zinc-600 font-medium text-sm">{label}</label>
+            {large ? (
+                <textarea
+                    className={`bg-white py-2 px-3 border border-zinc-300 placeholder:text-zinc-500 text-zinc-900 shadow-xs rounded-lg focus:ring-[4px] focus:ring-zinc-400/15 focus:outline-none h-24 align-text-top`}
+                    placeholder={placeholder}
+                    value={value || ''}
+                    onChange={onChange}
+                />
+            ) : (
+                <input
+                    className={`bg-white py-2 px-3 border border-zinc-300 placeholder:text-zinc-500 text-zinc-900 shadow-xs rounded-lg focus:ring-[4px] focus:ring-zinc-400/15 focus:outline-none`}
+                    type={type}
+                    placeholder={placeholder}
+                    value={value || ''}
+                    onChange={onChange}
+                />
+            )}
+        </div>
+    )
+}

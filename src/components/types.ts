@@ -16,3 +16,9 @@ export const sizeStyles: Record<InputSize, string> = {
     md: "h-10 px-3 text-sm rounded-lg",
     lg: "h-12 px-4 text-base rounded-xl",
 };
+
+export type FormState = {
+  tokenAddress: string;
+  recipients: string;
+  amounts: string;
+};
