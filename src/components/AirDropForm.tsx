@@ -118,13 +118,13 @@ export const AirDropForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-xl p-8 bg-white rounded-2xl shadow-lg border border-zinc-100"
+      className="w-full p-10 bg-white rounded-2xl shadow-lg border border-zinc-100"
     >
       <div className="mb-6">
         <h2 className="text-2xl font-semibold text-zinc-900">
           T-Sender
         </h2>
-        <p className="text-sm text-zinc-500 mt-1">
+        <p className="text-sm font-semibold text-zinc-500 mt-1">
           Send tokens to multiple addresses efficiently
         </p>
       </div>

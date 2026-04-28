@@ -22,3 +22,8 @@ export type FormState = {
   recipients: string;
   amounts: string;
 };
+
+export type LabelElementProps = {
+  label: string;
+  value: string | number;
+};
