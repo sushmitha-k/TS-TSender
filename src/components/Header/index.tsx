@@ -16,7 +16,7 @@ export const Header = () => {
           </h1>
 
           <a
-            href="https://github.com/cyfrin/TSender"
+            href="https://github.com/sushmitha-k/TS-TSender"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 hidden md:flex items-center justify-center rounded-lg border border-zinc-300 bg-zinc-900 p-2 text-white shadow-sm transition-all hover:bg-zinc-800 hover:shadow-md"
